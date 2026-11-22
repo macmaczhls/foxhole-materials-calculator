@@ -3,9 +3,8 @@ import { vehicleRecipes } from "../recipes/vehicles";
 
 /** Display names from the Vehicles enum (calculator inventory). */
 export function loadLocalVehicleNames(): string[] {
-  return Object.values(Vehicles).filter(
-    (value): value is string => typeof value === "string"
-  );
+  // String enum: Object.values is already Vehicles[] (assignable to string[]).
+  return Object.values(Vehicles);
 }
 
 /**
