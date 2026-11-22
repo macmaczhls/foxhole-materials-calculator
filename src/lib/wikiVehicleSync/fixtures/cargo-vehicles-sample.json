@@ -1,0 +1,148 @@
+{
+  "cargoquery": [
+    {
+      "title": {
+        "name": "00MS “Stinger”",
+        "type": "Motorcycle",
+        "faction": "Col",
+        "codename": "MotorcycleOffensiveC",
+        "status": ""
+      }
+    },
+    {
+      "title": {
+        "name": "03MM “Caster”",
+        "type": "Motorcycle",
+        "faction": "Col",
+        "codename": "MotorcycleC",
+        "status": ""
+      }
+    },
+    {
+      "title": {
+        "name": "40-45 “Smelter”",
+        "type": "Heavy Field Gun",
+        "faction": "Col",
+        "codename": "FieldCannonDamageC",
+        "status": ""
+      }
+    },
+    {
+      "title": {
+        "name": "74c-2 Ronan Meteora Gunship",
+        "type": "Gunboat",
+        "faction": "War",
+        "codename": "",
+        "status": "Unavailable"
+      }
+    },
+    {
+      "title": {
+        "name": "AA-2 “Battering Ram”",
+        "type": "Field AT Gun",
+        "faction": "Col",
+        "codename": "FieldATC",
+        "status": ""
+      }
+    },
+    {
+      "title": {
+        "name": "AC-b “Trident”",
+        "type": "Submarine",
+        "faction": "Col",
+        "codename": "LargeShipSubmarineC",
+        "status": ""
+      }
+    },
+    {
+      "title": {
+        "name": "Armoured Fighting Tractor",
+        "type": "Relic Armoured Car",
+        "faction": "Both",
+        "codename": "RelicArmouredCar",
+        "status": "Relic"
+      }
+    },
+    {
+      "title": {
+        "name": "BMS - White Whale",
+        "type": "Landing Ship",
+        "faction": "Both",
+        "codename": "",
+        "status": "Unavailable"
+      }
+    },
+    {
+      "title": {
+        "name": "Centurion MV-2",
+        "type": "Mech",
+        "faction": "Col",
+        "codename": "Mech",
+        "status": "Unavailable"
+      }
+    },
+    {
+      "title": {
+        "name": "Devitt Ironhide Mk. IV",
+        "type": "Light Tank",
+        "faction": "War",
+        "codename": "LightTankDefensiveW",
+        "status": ""
+      }
+    },
+    {
+      "title": {
+        "name": "Mercy",
+        "type": "Aircraft Carrier",
+        "faction": "War",
+        "codename": "LargeShipBattleshipAircraftW",
+        "status": ""
+      }
+    },
+    {
+      "title": {
+        "name": "Mergo-4 “Myrmidon”",
+        "type": "Dive Bomber Aircraft",
+        "faction": "Col",
+        "codename": "AircraftDiveC",
+        "status": ""
+      }
+    },
+    {
+      "title": {
+        "name": "O'Brien V.113 Gravekeeper",
+        "type": "Armoured Car",
+        "faction": "War",
+        "codename": "ArmoredCarATW",
+        "status": ""
+      }
+    },
+    {
+      "title": {
+        "name": "PL-1 “Phalanx”",
+        "type": "Relic Vehicle",
+        "faction": "Both",
+        "codename": "RelicMediumTank",
+        "status": "Relic"
+      }
+    },
+    {
+      "title": {
+        "name": "T3 “Xiphos”",
+        "type": "Armoured Car",
+        "faction": "Col",
+        "codename": "ArmoredCarC",
+        "status": ""
+      }
+    },
+    {
+      "title": {
+        "name": "UV-05 “Collector”",
+        "type": "Light Utility Vehicle",
+        "faction": "Col",
+        "codename": "",
+        "status": "Unavailable"
+      }
+    }
+  ]
+}
