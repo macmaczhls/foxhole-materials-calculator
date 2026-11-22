@@ -24,6 +24,7 @@ describe("Naval Vehicles", () => {
         Vehicles.Callahan,
         Vehicles.Strider,
         Vehicles.K81eSombre,
+        Vehicles.BMSGrouper,
       ];
 
       navalVehicles.forEach((vehicle) => {
@@ -50,6 +51,7 @@ describe("Naval Vehicles", () => {
         Vehicles.Callahan,
         Vehicles.Strider,
         Vehicles.K81eSombre,
+        Vehicles.BMSGrouper,
       ];
 
       navalVehicles.forEach((vehicle) => {
@@ -81,6 +83,7 @@ describe("Naval Vehicles", () => {
       expect(navalVehicleRecipes.has(Vehicles.Callahan)).toBe(true);
       expect(navalVehicleRecipes.has(Vehicles.Strider)).toBe(true);
       expect(navalVehicleRecipes.has(Vehicles.K81eSombre)).toBe(true);
+      expect(navalVehicleRecipes.has(Vehicles.BMSGrouper)).toBe(true);
     });
   });
 
@@ -198,6 +201,7 @@ describe("Naval Vehicles", () => {
         Vehicles.TypeBLucian,
         Vehicles.Callahan,
         Vehicles.Strider,
+        Vehicles.BMSGrouper,
       ];
 
       navalVehicles.forEach((vehicle) => {
@@ -873,6 +877,51 @@ describe("Naval Vehicles", () => {
 
       expect(result.initial).toEqual([
         { stuff: Materials.BasicMaterials, count: 600 },
+      ]);
+    });
+  });
+
+  describe("BMS - Grouper (Motorboat)", () => {
+    let bmsGrouperRecipes: IRecipe[];
+    let bmsGrouperRecipeTree: RecipeTree;
+
+    beforeEach(() => {
+      bmsGrouperRecipes = RecipiesByStuff.get(Vehicles.BMSGrouper)!;
+      bmsGrouperRecipeTree = {
+        stuff: Vehicles.BMSGrouper,
+        selectedRecipe: bmsGrouperRecipes[0],
+        recipes: bmsGrouperRecipes,
+        required: [],
+      };
+    });
+
+    test("has correct beach recipe requirements", () => {
+      const recipe = bmsGrouperRecipes[0];
+      expect(recipe.required).toEqual([
+        { stuff: Materials.BasicMaterials, count: 60 },
+      ]);
+      expect(recipe.produced).toEqual([
+        { stuff: Vehicles.BMSGrouper, count: 1 },
+      ]);
+    });
+
+    test("has only beach recipe (no mass production)", () => {
+      expect(bmsGrouperRecipes.length).toBe(1);
+    });
+
+    test("calculates components correctly for single unit", () => {
+      const result = calculateComponents(bmsGrouperRecipeTree, 1);
+
+      expect(result.initial).toEqual([
+        { stuff: Materials.BasicMaterials, count: 60 },
+      ]);
+    });
+
+    test("calculates components correctly for multiple units", () => {
+      const result = calculateComponents(bmsGrouperRecipeTree, 3);
+
+      expect(result.initial).toEqual([
+        { stuff: Materials.BasicMaterials, count: 180 },
       ]);
     });
   });
