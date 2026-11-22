@@ -1,8 +1,25 @@
+import fs from "node:fs";
+import path from "node:path";
 import {
   GITHUB_PAGES_BASE_PATH,
+  GITHUB_PAGES_SITE_URL,
   resolveSiteAssetPrefix,
   resolveSiteBasePath,
 } from "@/lib/siteBasePath";
+
+describe("GITHUB_PAGES_SITE_URL", () => {
+  it("matches the package homepage and org Pages host", () => {
+    expect(GITHUB_PAGES_SITE_URL).toBe(
+      "https://macmaczhls.github.io/foxhole-materials-calculator/"
+    );
+
+    const packageJson = JSON.parse(
+      fs.readFileSync(path.join(process.cwd(), "package.json"), "utf8")
+    ) as { homepage?: string };
+
+    expect(packageJson.homepage).toBe(GITHUB_PAGES_SITE_URL);
+  });
+});
 
 describe("resolveSiteBasePath", () => {
   it("uses NEXT_PUBLIC_BASE_PATH when set", () => {
