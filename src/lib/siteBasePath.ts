@@ -7,6 +7,10 @@ export type SitePathEnv = {
 
 export const GITHUB_PAGES_BASE_PATH = "/foxhole-materials-calculator";
 
+/** Canonical GitHub Pages URL after the macmaczhls org rename. */
+export const GITHUB_PAGES_SITE_URL =
+  "https://macmaczhls.github.io/foxhole-materials-calculator/";
+
 export function resolveSiteBasePath(env: SitePathEnv = process.env): string {
   if (env.NEXT_PUBLIC_BASE_PATH) {
     return env.NEXT_PUBLIC_BASE_PATH;

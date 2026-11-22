@@ -83,4 +83,4 @@ src/
 ## Deployment
 
 - Auto-deploys to GitHub Pages on `main` branch
-- Live site: https://macmaczhl.github.io/foxhole-materials-calculator/
+- Live site: https://macmaczhls.github.io/foxhole-materials-calculator/

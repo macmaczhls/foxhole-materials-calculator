@@ -2,7 +2,7 @@
 
 A comprehensive web application for calculating material requirements and crafting recipes for the Foxhole game. Calculate the exact resources needed to produce any quantity of materials, vehicles, or equipment with intelligent recipe tree optimization.
 
-🚀 **Live Application**: https://macmaczhl.github.io/foxhole-materials-calculator/
+🚀 **Live Application**: https://macmaczhls.github.io/foxhole-materials-calculator/
 
 Inspired by [reddit post](https://www.reddit.com/r/foxholegame/comments/ym64ru/facility_cost_calculator/)
 
@@ -48,7 +48,7 @@ Inspired by [reddit post](https://www.reddit.com/r/foxholegame/comments/ym64ru/f
 
 ```bash
 # Clone the repository
-git clone https://github.com/macmaczhl/foxhole-materials-calculator.git
+git clone https://github.com/macmaczhls/foxhole-materials-calculator.git
 cd foxhole-materials-calculator
 
 # Install dependencies
@@ -227,7 +227,7 @@ The application automatically deploys to GitHub Pages when changes are merged to
 
 1. **GitHub Actions** runs lint and test validation
 2. **Build process** creates static export in `./out/`
-3. **Deployment** updates live site at https://macmaczhl.github.io/foxhole-materials-calculator/
+3. **Deployment** updates live site at https://macmaczhls.github.io/foxhole-materials-calculator/
 
 #### Local Production Testing
 
@@ -238,7 +238,7 @@ npm start        # Serve production build locally
 
 ### Getting Help
 
-- **Issues**: Check [existing issues](https://github.com/macmaczhl/foxhole-materials-calculator/issues)
+- **Issues**: Check [existing issues](https://github.com/macmaczhls/foxhole-materials-calculator/issues)
 - **Discussions**: Use GitHub Discussions for questions
 - **Code Review**: Maintainers will review PRs promptly
 
