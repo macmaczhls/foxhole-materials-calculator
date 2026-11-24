@@ -352,6 +352,15 @@ const rinnspeirOrnitierRecipes: IRecipe[] = [
   ),
 ];
 
+// BMS - Grouper (Motorboat) recipes
+const bmsGrouperRecipes: IRecipe[] = [
+  // Beach production: 60 x Basic Materials → 1 x BMS - Grouper
+  createRecipe(
+    [{ stuff: Materials.BasicMaterials, count: 60 }],
+    [{ stuff: Vehicles.BMSGrouper, count: 1 }]
+  ),
+];
+
 export const navalVehicleRecipes = new Map<string, IRecipe[]>([
   [Materials.NavalHullSegments, navalHullSegmentsRecipes],
   [Materials.NavalShellPlating, navalShellPlatingRecipes],
@@ -372,4 +381,5 @@ export const navalVehicleRecipes = new Map<string, IRecipe[]>([
   [Vehicles.Strider, striderRecipes],
   [Vehicles.K81eSombre, k81eSombreRecipes],
   [Vehicles.RinnspeirOrnitierClassGunship, rinnspeirOrnitierRecipes],
+  [Vehicles.BMSGrouper, bmsGrouperRecipes],
 ]);
