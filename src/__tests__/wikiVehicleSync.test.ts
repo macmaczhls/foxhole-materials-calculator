@@ -96,6 +96,9 @@ describe("wikiVehicleSync chapter map", () => {
     expect(mapWikiTypeToChapter("Light Tank")).toBe("lightTanks.ts");
     expect(mapWikiTypeToChapter("Motorcycle")).toBe("motorcycles.ts");
     expect(mapWikiTypeToChapter("Submarine")).toBe("navalVehicles.ts");
+    expect(mapWikiTypeToChapter("Fighter Aircraft")).toBe(
+      "aircrafts/fighterAircrafts.ts"
+    );
   });
 
   test("treats aircraft carrier / mech as unmapped", () => {
