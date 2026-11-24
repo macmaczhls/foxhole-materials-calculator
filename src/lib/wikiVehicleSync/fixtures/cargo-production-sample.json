@@ -1,0 +1,112 @@
+{
+  "cargoquery": [
+    {
+      "title": {
+        "Source": "Dry Dock",
+        "ProductionCategory": "None",
+        "Output": "AC-b “Trident”",
+        "Faction": "Col",
+        "SpecialStatus": ""
+      }
+    },
+    {
+      "title": {
+        "Source": "Dry Dock",
+        "ProductionCategory": "None",
+        "Output": "Mercy",
+        "Faction": "War",
+        "SpecialStatus": ""
+      }
+    },
+    {
+      "title": {
+        "Source": "Garage",
+        "ProductionCategory": "None",
+        "Output": "03MM “Caster”",
+        "Faction": "Col",
+        "SpecialStatus": ""
+      }
+    },
+    {
+      "title": {
+        "Source": "Garage",
+        "ProductionCategory": "None",
+        "Output": "AA-2 “Battering Ram”",
+        "Faction": "Col",
+        "SpecialStatus": ""
+      }
+    },
+    {
+      "title": {
+        "Source": "Garage",
+        "ProductionCategory": "None",
+        "Output": "Armoured Fighting Tractor",
+        "Faction": "Both",
+        "SpecialStatus": "Relic"
+      }
+    },
+    {
+      "title": {
+        "Source": "Garage",
+        "ProductionCategory": "None",
+        "Output": "PL-1 “Phalanx”",
+        "Faction": "Both",
+        "SpecialStatus": "Relic"
+      }
+    },
+    {
+      "title": {
+        "Source": "Garage",
+        "ProductionCategory": "None",
+        "Output": "T3 “Xiphos”",
+        "Faction": "Col",
+        "SpecialStatus": ""
+      }
+    },
+    {
+      "title": {
+        "Source": "Large Assembly Station",
+        "ProductionCategory": "Aircraft Assembly",
+        "Output": "Mergo-4 “Myrmidon”",
+        "Faction": "Col",
+        "SpecialStatus": ""
+      }
+    },
+    {
+      "title": {
+        "Source": "Small Assembly Station",
+        "ProductionCategory": "Field Station",
+        "Output": "40-45 “Smelter”",
+        "Faction": "Col",
+        "SpecialStatus": ""
+      }
+    },
+    {
+      "title": {
+        "Source": "Small Assembly Station",
+        "ProductionCategory": "Motor Pool",
+        "Output": "O'Brien V.113 Gravekeeper",
+        "Faction": "War",
+        "SpecialStatus": ""
+      }
+    },
+    {
+      "title": {
+        "Source": "Small Assembly Station",
+        "ProductionCategory": "None",
+        "Output": "00MS “Stinger”",
+        "Faction": "Col",
+        "SpecialStatus": ""
+      }
+    },
+    {
+      "title": {
+        "Source": "Small Assembly Station",
+        "ProductionCategory": "Tank Factory",
+        "Output": "Devitt Ironhide Mk. IV",
+        "Faction": "War",
+        "SpecialStatus": ""
+      }
+    }
+  ]
+}

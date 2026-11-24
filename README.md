@@ -74,6 +74,17 @@ npm run build
 npm start
 ```
 
+### Wiki ↔ calculator vehicle sync
+
+Read-only CLI that compares [foxhole.wiki.gg](https://foxhole.wiki.gg) Cargo `vehicles` / `Production` data to the local `Vehicles` enum (no recipe auto-writes):
+
+```bash
+npm run compare:wiki-vehicles
+npm run compare:wiki-vehicles -- --include-relic --include-unavailable --out tmp/wiki-vehicles.md
+npm run compare:wiki-vehicles -- --fixture   # offline sample fixtures
+npm run compare:wiki-vehicles -- --offline   # reuse tmp/ cache from a prior run
+```
+
 ## Usage Examples
 
 ### Basic Material Calculation
