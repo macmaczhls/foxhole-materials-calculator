@@ -25,6 +25,7 @@ describe("Naval Vehicles", () => {
         Vehicles.Strider,
         Vehicles.K81eSombre,
         Vehicles.BMSGrouper,
+        Vehicles.RonanBlackguard81ff,
       ];
 
       navalVehicles.forEach((vehicle) => {
@@ -52,6 +53,7 @@ describe("Naval Vehicles", () => {
         Vehicles.Strider,
         Vehicles.K81eSombre,
         Vehicles.BMSGrouper,
+        Vehicles.RonanBlackguard81ff,
       ];
 
       navalVehicles.forEach((vehicle) => {
@@ -84,6 +86,7 @@ describe("Naval Vehicles", () => {
       expect(navalVehicleRecipes.has(Vehicles.Strider)).toBe(true);
       expect(navalVehicleRecipes.has(Vehicles.K81eSombre)).toBe(true);
       expect(navalVehicleRecipes.has(Vehicles.BMSGrouper)).toBe(true);
+      expect(navalVehicleRecipes.has(Vehicles.RonanBlackguard81ff)).toBe(true);
     });
   });
 
@@ -202,6 +205,7 @@ describe("Naval Vehicles", () => {
         Vehicles.Callahan,
         Vehicles.Strider,
         Vehicles.BMSGrouper,
+        Vehicles.RonanBlackguard81ff,
       ];
 
       navalVehicles.forEach((vehicle) => {
@@ -922,6 +926,99 @@ describe("Naval Vehicles", () => {
 
       expect(result.initial).toEqual([
         { stuff: Materials.BasicMaterials, count: 180 },
+      ]);
+    });
+  });
+
+  describe("81f-f Ronan Blackguard (Siege Boat)", () => {
+    let blackguardRecipes: IRecipe[];
+    let blackguardRecipeTree: RecipeTree;
+
+    beforeEach(() => {
+      blackguardRecipes = RecipiesByStuff.get(Vehicles.RonanBlackguard81ff)!;
+      blackguardRecipeTree = {
+        stuff: Vehicles.RonanBlackguard81ff,
+        selectedRecipe: blackguardRecipes[0],
+        recipes: blackguardRecipes,
+        required: [],
+      };
+    });
+
+    test("has correct shipyard recipe requirements", () => {
+      const recipe = blackguardRecipes[0];
+      expect(recipe.required).toEqual([
+        { stuff: Materials.RefinedMaterials, count: 100 },
+      ]);
+      expect(recipe.produced).toEqual([
+        { stuff: Vehicles.RonanBlackguard81ff, count: 1 },
+      ]);
+    });
+
+    test("has mass production recipes", () => {
+      expect(blackguardRecipes.length).toBe(4);
+
+      const shipyardRecipe = blackguardRecipes.find(
+        (r) => r.produced[0].count === 1
+      );
+      expect(shipyardRecipe).toBeDefined();
+      expect(shipyardRecipe!.required[0].stuff).toBe(
+        Materials.RefinedMaterials
+      );
+      expect(shipyardRecipe!.required[0].count).toBe(100);
+
+      const massProduction = blackguardRecipes.filter(
+        (r) => r.produced[0].count > 1
+      );
+      expect(massProduction.length).toBe(3);
+
+      const recipe9 = blackguardRecipes.find((r) => r.produced[0].count === 9);
+      expect(recipe9).toBeDefined();
+      expect(recipe9!.required[0].count).toBe(720);
+
+      const recipe12 = blackguardRecipes.find(
+        (r) => r.produced[0].count === 12
+      );
+      expect(recipe12).toBeDefined();
+      expect(recipe12!.required[0].count).toBe(900);
+
+      const recipe15 = blackguardRecipes.find(
+        (r) => r.produced[0].count === 15
+      );
+      expect(recipe15).toBeDefined();
+      expect(recipe15!.required[0].count).toBe(1050);
+    });
+
+    test("calculates components correctly for single unit", () => {
+      const result = calculateComponents(blackguardRecipeTree, 1);
+
+      expect(result.initial).toEqual([
+        { stuff: Materials.RefinedMaterials, count: 100 },
+      ]);
+    });
+
+    test("calculates components correctly for multiple units", () => {
+      const result = calculateComponents(blackguardRecipeTree, 3);
+
+      expect(result.initial).toEqual([
+        { stuff: Materials.RefinedMaterials, count: 300 },
+      ]);
+    });
+
+    test("calculates components correctly for mass production (9 units)", () => {
+      const massProductionRecipe = blackguardRecipes.find(
+        (r) => r.produced[0].count === 9
+      )!;
+      const massProductionTree: RecipeTree = {
+        stuff: Vehicles.RonanBlackguard81ff,
+        selectedRecipe: massProductionRecipe,
+        recipes: blackguardRecipes,
+        required: [],
+      };
+
+      const result = calculateComponents(massProductionTree, 1);
+
+      expect(result.initial).toEqual([
+        { stuff: Materials.RefinedMaterials, count: 720 },
       ]);
     });
   });
