@@ -214,4 +214,6 @@ export const ICONS_MAP = new Map<string, string>([
   [Vehicles.DaimonAK5Harpy, "AircraftFighter2CIcon"],
   // Wiki filename uses "Figther" spelling
   [Vehicles.Toxot902BlindSilver, "AircraftFigtherCIcon"],
+  // Amphibious Fighter Aircraft
+  [Vehicles.TulkaI19WhiteRaven, "AircraftWaterWIcon"],
 ]);

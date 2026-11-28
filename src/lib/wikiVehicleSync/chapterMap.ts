@@ -95,7 +95,7 @@ export const WIKI_TYPE_CHAPTER_MAP: Record<string, string> = {
   "Amphibious Scout Aircraft": "aircrafts/amphibiousScoutAircrafts.ts",
   "Scout Aircraft": "aircrafts/amphibiousScoutAircrafts.ts",
   "Fighter Aircraft": "aircrafts/fighterAircrafts.ts",
-  "Amphibious Fighter Aircraft": "unmapped",
+  "Amphibious Fighter Aircraft": "aircrafts/amphibiousFighterAircrafts.ts",
   "Torpedo Bomber Aircraft": "unmapped",
   "Dive Bomber Aircraft": "unmapped",
   "Heavy Bomber Aircraft": "unmapped",
