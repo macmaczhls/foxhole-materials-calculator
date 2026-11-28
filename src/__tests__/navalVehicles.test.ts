@@ -26,6 +26,7 @@ describe("Naval Vehicles", () => {
         Vehicles.K81eSombre,
         Vehicles.BMSGrouper,
         Vehicles.RonanBlackguard81ff,
+        Vehicles.Blacksteele,
       ];
 
       navalVehicles.forEach((vehicle) => {
@@ -54,6 +55,7 @@ describe("Naval Vehicles", () => {
         Vehicles.K81eSombre,
         Vehicles.BMSGrouper,
         Vehicles.RonanBlackguard81ff,
+        Vehicles.Blacksteele,
       ];
 
       navalVehicles.forEach((vehicle) => {
@@ -87,6 +89,7 @@ describe("Naval Vehicles", () => {
       expect(navalVehicleRecipes.has(Vehicles.K81eSombre)).toBe(true);
       expect(navalVehicleRecipes.has(Vehicles.BMSGrouper)).toBe(true);
       expect(navalVehicleRecipes.has(Vehicles.RonanBlackguard81ff)).toBe(true);
+      expect(navalVehicleRecipes.has(Vehicles.Blacksteele)).toBe(true);
     });
   });
 
@@ -206,6 +209,7 @@ describe("Naval Vehicles", () => {
         Vehicles.Strider,
         Vehicles.BMSGrouper,
         Vehicles.RonanBlackguard81ff,
+        Vehicles.Blacksteele,
       ];
 
       navalVehicles.forEach((vehicle) => {
@@ -1019,6 +1023,54 @@ describe("Naval Vehicles", () => {
 
       expect(result.initial).toEqual([
         { stuff: Materials.RefinedMaterials, count: 720 },
+      ]);
+    });
+  });
+
+  describe("Blacksteele (Light Frigate)", () => {
+    let blacksteeleRecipes: IRecipe[];
+    let blacksteeleRecipeTree: RecipeTree;
+
+    beforeEach(() => {
+      blacksteeleRecipes = RecipiesByStuff.get(Vehicles.Blacksteele)!;
+      blacksteeleRecipeTree = {
+        stuff: Vehicles.Blacksteele,
+        selectedRecipe: blacksteeleRecipes[0],
+        recipes: blacksteeleRecipes,
+        required: [],
+      };
+    });
+
+    test("has correct dry dock recipe requirements", () => {
+      const recipe = blacksteeleRecipes[0];
+      expect(recipe.required).toEqual([
+        { stuff: Materials.NavalHullSegments, count: 12 },
+        { stuff: Materials.NavalShellPlating, count: 12 },
+      ]);
+      expect(recipe.produced).toEqual([
+        { stuff: Vehicles.Blacksteele, count: 1 },
+      ]);
+    });
+
+    test("has only dry dock recipe (no mass production)", () => {
+      expect(blacksteeleRecipes.length).toBe(1);
+    });
+
+    test("calculates components correctly for single unit", () => {
+      const result = calculateComponents(blacksteeleRecipeTree, 1);
+
+      expect(result.initial).toEqual([
+        { stuff: Materials.NavalHullSegments, count: 12 },
+        { stuff: Materials.NavalShellPlating, count: 12 },
+      ]);
+    });
+
+    test("calculates components correctly for multiple units", () => {
+      const result = calculateComponents(blacksteeleRecipeTree, 3);
+
+      expect(result.initial).toEqual([
+        { stuff: Materials.NavalHullSegments, count: 36 },
+        { stuff: Materials.NavalShellPlating, count: 36 },
       ]);
     });
   });
