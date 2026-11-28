@@ -18,6 +18,7 @@ const allTrainVehicles = [
   Vehicles.BMSLongrider,
   Vehicles.BMSRockhold,
   Vehicles.BMSRoadhouse,
+  Vehicles.BMSBlackBolt,
 ];
 
 describe("Train Vehicles", () => {
@@ -48,7 +49,8 @@ describe("Train Vehicles", () => {
       expect(flatbedCarRecipes.has(Vehicles.BMSLongrider)).toBe(true);
       expect(flatbedCarRecipes.has(Vehicles.BMSRockhold)).toBe(true);
       expect(flatbedCarRecipes.has(Vehicles.BMSRoadhouse)).toBe(true);
-      expect(flatbedCarRecipes.size).toBe(3);
+      expect(flatbedCarRecipes.has(Vehicles.BMSBlackBolt)).toBe(true);
+      expect(flatbedCarRecipes.size).toBe(4);
     });
   });
 
@@ -252,6 +254,57 @@ describe("Train Vehicles", () => {
         { stuff: Materials.ProcessedConstructionMaterials, count: 60 },
         { stuff: Materials.AssemblyMaterialsII, count: 45 },
         { stuff: Materials.AssemblyMaterialsIII, count: 15 },
+      ]);
+    });
+  });
+
+  describe("BMS Black Bolt (Locomotive)", () => {
+    let bmsBlackBoltRecipes: IRecipe[];
+    let bmsBlackBoltRecipeTree: RecipeTree;
+
+    beforeEach(() => {
+      bmsBlackBoltRecipes = RecipiesByStuff.get(Vehicles.BMSBlackBolt)!;
+      bmsBlackBoltRecipeTree = {
+        stuff: Vehicles.BMSBlackBolt,
+        selectedRecipe: bmsBlackBoltRecipes[0],
+        recipes: bmsBlackBoltRecipes,
+        required: [],
+      };
+    });
+
+    test("has correct large assembly station recipe requirements", () => {
+      const recipe = bmsBlackBoltRecipes[0];
+      expect(recipe.required).toEqual([
+        { stuff: Materials.ProcessedConstructionMaterials, count: 200 },
+        { stuff: Materials.AssemblyMaterialsI, count: 60 },
+        { stuff: Materials.AssemblyMaterialsIV, count: 50 },
+      ]);
+      expect(recipe.produced).toEqual([
+        { stuff: Vehicles.BMSBlackBolt, count: 1 },
+      ]);
+    });
+
+    test("has only large assembly station recipe (no mass production)", () => {
+      expect(bmsBlackBoltRecipes.length).toBe(1);
+    });
+
+    test("calculates components correctly for single unit", () => {
+      const result = calculateComponents(bmsBlackBoltRecipeTree, 1);
+
+      expect(result.initial).toEqual([
+        { stuff: Materials.ProcessedConstructionMaterials, count: 200 },
+        { stuff: Materials.AssemblyMaterialsI, count: 60 },
+        { stuff: Materials.AssemblyMaterialsIV, count: 50 },
+      ]);
+    });
+
+    test("calculates components correctly for multiple units", () => {
+      const result = calculateComponents(bmsBlackBoltRecipeTree, 3);
+
+      expect(result.initial).toEqual([
+        { stuff: Materials.ProcessedConstructionMaterials, count: 600 },
+        { stuff: Materials.AssemblyMaterialsI, count: 180 },
+        { stuff: Materials.AssemblyMaterialsIV, count: 150 },
       ]);
     });
   });

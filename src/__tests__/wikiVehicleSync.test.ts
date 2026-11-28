@@ -102,6 +102,7 @@ describe("wikiVehicleSync chapter map", () => {
     expect(mapWikiTypeToChapter("Amphibious Fighter Aircraft")).toBe(
       "aircrafts/amphibiousFighterAircrafts.ts"
     );
+    expect(mapWikiTypeToChapter("Locomotive")).toBe("trains/flatbedCars.ts");
   });
 
   test("treats aircraft carrier / mech as unmapped", () => {

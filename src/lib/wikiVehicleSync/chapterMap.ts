@@ -81,7 +81,7 @@ export const WIKI_TYPE_CHAPTER_MAP: Record<string, string> = {
   "Small Box Car": "trains/smallTrains.ts",
   "Small Container Car": "trains/smallTrains.ts",
   "Small Liquid Container Car": "trains/smallTrains.ts",
-  Locomotive: "trains/smallTrains.ts",
+  Locomotive: "trains/flatbedCars.ts",
   "Large Crane": "trains/largeCranes.ts",
   "Infantry Car": "trains/infantryCars.ts",
   "Combat Car": "trains/infantryCars.ts",
