@@ -51,7 +51,7 @@ import {
  * - navalVehicles.ts: Naval Vehicles (Barges)
  * - trains/smallTrains.ts: Small Train Vehicles
  * - trains/largeCranes.ts: Large Crane Vehicles
- * - trains/infantryCars.ts: Infantry Cars
+ * - trains/infantryCars.ts: Infantry Cars, Combat Cars
  * - trains/flatbedCars.ts: Flatbed Cars, Container Cars, Caboose, Locomotive
  * - aircrafts/amphibiousScoutAircrafts.ts: Amphibious Scout Aircraft
  * - aircrafts/fighterAircrafts.ts: Fighter Aircraft

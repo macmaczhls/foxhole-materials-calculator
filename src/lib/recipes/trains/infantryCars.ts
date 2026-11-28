@@ -14,6 +14,34 @@ const bmsHoldoutRecipes: IRecipe[] = [
   ),
 ];
 
+// Aegis Steelbreaker K5a (Combat Car) recipes
+const aegisSteelbreakerK5aRecipes: IRecipe[] = [
+  // Large Assembly Station: 30 x Steel Construction Materials + 30 x Assembly Materials I + 30 x Assembly Materials IV → 1 x Aegis Steelbreaker K5a
+  createRecipe(
+    [
+      { stuff: Materials.SteelConstructionMaterials, count: 30 },
+      { stuff: Materials.AssemblyMaterialsI, count: 30 },
+      { stuff: Materials.AssemblyMaterialsIV, count: 30 },
+    ],
+    [{ stuff: Vehicles.AegisSteelbreakerK5a, count: 1 }]
+  ),
+];
+
+// O'Brien Warsmith v.215 (Combat Car) recipes
+const oBrienWarsmithV215Recipes: IRecipe[] = [
+  // Large Assembly Station: 30 x Steel Construction Materials + 30 x Assembly Materials I + 30 x Assembly Materials IV → 1 x O'Brien Warsmith v.215
+  createRecipe(
+    [
+      { stuff: Materials.SteelConstructionMaterials, count: 30 },
+      { stuff: Materials.AssemblyMaterialsI, count: 30 },
+      { stuff: Materials.AssemblyMaterialsIV, count: 30 },
+    ],
+    [{ stuff: Vehicles.OBrienWarsmithV215, count: 1 }]
+  ),
+];
+
 export const infantryCarRecipes = new Map<string, IRecipe[]>([
   [Vehicles.BMSHoldout, bmsHoldoutRecipes],
+  [Vehicles.AegisSteelbreakerK5a, aegisSteelbreakerK5aRecipes],
+  [Vehicles.OBrienWarsmithV215, oBrienWarsmithV215Recipes],
 ]);
