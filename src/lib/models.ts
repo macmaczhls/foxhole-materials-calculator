@@ -240,6 +240,9 @@ export enum Vehicles {
   Toxot902BlindSilver = 'Toxot-902 "Blind Silver"',
   // Amphibious Fighter Aircraft
   TulkaI19WhiteRaven = 'Tulka I1.9 White Raven',
+  // Heavy Bomber Aircraft
+  TulkaP4Welkinrive = 'Tulka P4 Welkinrive',
+  V1Tzykalia = 'V-1 Tzykalia',
 }
 
 export enum RawResources {
@@ -450,6 +453,9 @@ export const availableMaterials: Stuff[] = [
   { name: Vehicles.Toxot902BlindSilver },
   // Amphibious Fighter Aircraft
   { name: Vehicles.TulkaI19WhiteRaven },
+  // Heavy Bomber Aircraft
+  { name: Vehicles.TulkaP4Welkinrive },
+  { name: Vehicles.V1Tzykalia },
 ];
 
 export const stuffList: Stuff[] = availableMaterials;

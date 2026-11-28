@@ -220,4 +220,7 @@ export const ICONS_MAP = new Map<string, string>([
   [Vehicles.Toxot902BlindSilver, "AircraftFigtherCIcon"],
   // Amphibious Fighter Aircraft
   [Vehicles.TulkaI19WhiteRaven, "AircraftWaterWIcon"],
+  // Heavy Bomber Aircraft (icon filenames from foxhole.wiki.gg vehicle pages)
+  [Vehicles.TulkaP4Welkinrive, "AircraftBomberWIcon"],
+  [Vehicles.V1Tzykalia, "AircraftBomberCIcon"],
 ]);
