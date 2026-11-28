@@ -219,6 +219,7 @@ export enum Vehicles {
   RonanBlackguard81ff = '81f-f Ronan Blackguard',
   Blacksteele = 'Blacksteele',
   BMSBowhead = 'BMS - Bowhead',
+  BMSBluefin = 'BMS - Bluefin',
   // Train Vehicles
   BMSLinerunner = 'BMS Linerunner',
   BMSMineseeker = 'BMS Mineseeker',
@@ -432,6 +433,7 @@ export const availableMaterials: Stuff[] = [
   { name: Vehicles.RonanBlackguard81ff },
   { name: Vehicles.Blacksteele },
   { name: Vehicles.BMSBowhead },
+  { name: Vehicles.BMSBluefin },
   // Train Vehicles
   { name: Vehicles.BMSLinerunner },
   { name: Vehicles.BMSMineseeker },
