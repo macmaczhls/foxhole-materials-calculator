@@ -385,6 +385,18 @@ const ronanBlackguard81ffRecipes: IRecipe[] = [
   ),
 ];
 
+// Blacksteele (Light Frigate) recipes
+const blacksteeleRecipes: IRecipe[] = [
+  // Dry Dock production: 12 x Naval Hull Segments + 12 x Naval Shell Plating → 1 x Blacksteele
+  createRecipe(
+    [
+      { stuff: Materials.NavalHullSegments, count: 12 },
+      { stuff: Materials.NavalShellPlating, count: 12 },
+    ],
+    [{ stuff: Vehicles.Blacksteele, count: 1 }]
+  ),
+];
+
 export const navalVehicleRecipes = new Map<string, IRecipe[]>([
   [Materials.NavalHullSegments, navalHullSegmentsRecipes],
   [Materials.NavalShellPlating, navalShellPlatingRecipes],
@@ -407,4 +419,5 @@ export const navalVehicleRecipes = new Map<string, IRecipe[]>([
   [Vehicles.RinnspeirOrnitierClassGunship, rinnspeirOrnitierRecipes],
   [Vehicles.BMSGrouper, bmsGrouperRecipes],
   [Vehicles.RonanBlackguard81ff, ronanBlackguard81ffRecipes],
+  [Vehicles.Blacksteele, blacksteeleRecipes],
 ]);

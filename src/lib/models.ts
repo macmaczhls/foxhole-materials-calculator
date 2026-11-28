@@ -217,6 +217,7 @@ export enum Vehicles {
   RinnspeirOrnitierClassGunship = 'Rinnspeir Ornitier-Class Gunship',
   BMSGrouper = 'BMS - Grouper',
   RonanBlackguard81ff = '81f-f Ronan Blackguard',
+  Blacksteele = 'Blacksteele',
   // Train Vehicles
   BMSLinerunner = 'BMS Linerunner',
   BMSMineseeker = 'BMS Mineseeker',
@@ -423,6 +424,7 @@ export const availableMaterials: Stuff[] = [
   { name: Vehicles.RinnspeirOrnitierClassGunship },
   { name: Vehicles.BMSGrouper },
   { name: Vehicles.RonanBlackguard81ff },
+  { name: Vehicles.Blacksteele },
   // Train Vehicles
   { name: Vehicles.BMSLinerunner },
   { name: Vehicles.BMSMineseeker },
