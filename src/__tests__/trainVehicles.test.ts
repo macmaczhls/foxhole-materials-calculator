@@ -16,6 +16,7 @@ const allTrainVehicles = [
   Vehicles.BMSTinderbox,
   Vehicles.BMSStowheel,
   Vehicles.BMSLongrider,
+  Vehicles.BMSRockhold,
 ];
 
 describe("Train Vehicles", () => {
@@ -44,7 +45,8 @@ describe("Train Vehicles", () => {
       expect(infantryCarRecipes.has(Vehicles.BMSHoldout)).toBe(true);
       expect(infantryCarRecipes.size).toBe(1);
       expect(flatbedCarRecipes.has(Vehicles.BMSLongrider)).toBe(true);
-      expect(flatbedCarRecipes.size).toBe(1);
+      expect(flatbedCarRecipes.has(Vehicles.BMSRockhold)).toBe(true);
+      expect(flatbedCarRecipes.size).toBe(2);
     });
   });
 
@@ -146,6 +148,57 @@ describe("Train Vehicles", () => {
         { stuff: Materials.ProcessedConstructionMaterials, count: 60 },
         { stuff: Materials.AssemblyMaterialsII, count: 45 },
         { stuff: Materials.AssemblyMaterialsIII, count: 30 },
+      ]);
+    });
+  });
+
+  describe("BMS Rockhold (Container Car)", () => {
+    let bmsRockholdRecipes: IRecipe[];
+    let bmsRockholdRecipeTree: RecipeTree;
+
+    beforeEach(() => {
+      bmsRockholdRecipes = RecipiesByStuff.get(Vehicles.BMSRockhold)!;
+      bmsRockholdRecipeTree = {
+        stuff: Vehicles.BMSRockhold,
+        selectedRecipe: bmsRockholdRecipes[0],
+        recipes: bmsRockholdRecipes,
+        required: [],
+      };
+    });
+
+    test("has correct large assembly station recipe requirements", () => {
+      const recipe = bmsRockholdRecipes[0];
+      expect(recipe.required).toEqual([
+        { stuff: Materials.ProcessedConstructionMaterials, count: 20 },
+        { stuff: Materials.AssemblyMaterialsII, count: 15 },
+        { stuff: Materials.AssemblyMaterialsIII, count: 5 },
+      ]);
+      expect(recipe.produced).toEqual([
+        { stuff: Vehicles.BMSRockhold, count: 1 },
+      ]);
+    });
+
+    test("has only large assembly station recipe (no mass production)", () => {
+      expect(bmsRockholdRecipes.length).toBe(1);
+    });
+
+    test("calculates components correctly for single unit", () => {
+      const result = calculateComponents(bmsRockholdRecipeTree, 1);
+
+      expect(result.initial).toEqual([
+        { stuff: Materials.ProcessedConstructionMaterials, count: 20 },
+        { stuff: Materials.AssemblyMaterialsII, count: 15 },
+        { stuff: Materials.AssemblyMaterialsIII, count: 5 },
+      ]);
+    });
+
+    test("calculates components correctly for multiple units", () => {
+      const result = calculateComponents(bmsRockholdRecipeTree, 3);
+
+      expect(result.initial).toEqual([
+        { stuff: Materials.ProcessedConstructionMaterials, count: 60 },
+        { stuff: Materials.AssemblyMaterialsII, count: 45 },
+        { stuff: Materials.AssemblyMaterialsIII, count: 15 },
       ]);
     });
   });
