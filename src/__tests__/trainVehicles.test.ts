@@ -17,6 +17,7 @@ const allTrainVehicles = [
   Vehicles.BMSStowheel,
   Vehicles.BMSLongrider,
   Vehicles.BMSRockhold,
+  Vehicles.BMSRoadhouse,
 ];
 
 describe("Train Vehicles", () => {
@@ -46,7 +47,8 @@ describe("Train Vehicles", () => {
       expect(infantryCarRecipes.size).toBe(1);
       expect(flatbedCarRecipes.has(Vehicles.BMSLongrider)).toBe(true);
       expect(flatbedCarRecipes.has(Vehicles.BMSRockhold)).toBe(true);
-      expect(flatbedCarRecipes.size).toBe(2);
+      expect(flatbedCarRecipes.has(Vehicles.BMSRoadhouse)).toBe(true);
+      expect(flatbedCarRecipes.size).toBe(3);
     });
   });
 
@@ -194,6 +196,57 @@ describe("Train Vehicles", () => {
 
     test("calculates components correctly for multiple units", () => {
       const result = calculateComponents(bmsRockholdRecipeTree, 3);
+
+      expect(result.initial).toEqual([
+        { stuff: Materials.ProcessedConstructionMaterials, count: 60 },
+        { stuff: Materials.AssemblyMaterialsII, count: 45 },
+        { stuff: Materials.AssemblyMaterialsIII, count: 15 },
+      ]);
+    });
+  });
+
+  describe("BMS Roadhouse (Caboose)", () => {
+    let bmsRoadhouseRecipes: IRecipe[];
+    let bmsRoadhouseRecipeTree: RecipeTree;
+
+    beforeEach(() => {
+      bmsRoadhouseRecipes = RecipiesByStuff.get(Vehicles.BMSRoadhouse)!;
+      bmsRoadhouseRecipeTree = {
+        stuff: Vehicles.BMSRoadhouse,
+        selectedRecipe: bmsRoadhouseRecipes[0],
+        recipes: bmsRoadhouseRecipes,
+        required: [],
+      };
+    });
+
+    test("has correct large assembly station recipe requirements", () => {
+      const recipe = bmsRoadhouseRecipes[0];
+      expect(recipe.required).toEqual([
+        { stuff: Materials.ProcessedConstructionMaterials, count: 20 },
+        { stuff: Materials.AssemblyMaterialsII, count: 15 },
+        { stuff: Materials.AssemblyMaterialsIII, count: 5 },
+      ]);
+      expect(recipe.produced).toEqual([
+        { stuff: Vehicles.BMSRoadhouse, count: 1 },
+      ]);
+    });
+
+    test("has only large assembly station recipe (no mass production)", () => {
+      expect(bmsRoadhouseRecipes.length).toBe(1);
+    });
+
+    test("calculates components correctly for single unit", () => {
+      const result = calculateComponents(bmsRoadhouseRecipeTree, 1);
+
+      expect(result.initial).toEqual([
+        { stuff: Materials.ProcessedConstructionMaterials, count: 20 },
+        { stuff: Materials.AssemblyMaterialsII, count: 15 },
+        { stuff: Materials.AssemblyMaterialsIII, count: 5 },
+      ]);
+    });
+
+    test("calculates components correctly for multiple units", () => {
+      const result = calculateComponents(bmsRoadhouseRecipeTree, 3);
 
       expect(result.initial).toEqual([
         { stuff: Materials.ProcessedConstructionMaterials, count: 60 },
