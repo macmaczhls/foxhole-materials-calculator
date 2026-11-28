@@ -51,7 +51,7 @@ import {
  * - trains/smallTrains.ts: Small Train Vehicles
  * - trains/largeCranes.ts: Large Crane Vehicles
  * - trains/infantryCars.ts: Infantry Cars
- * - trains/flatbedCars.ts: Flatbed Cars, Container Cars
+ * - trains/flatbedCars.ts: Flatbed Cars, Container Cars, Caboose
  * - aircrafts/amphibiousScoutAircrafts.ts: Amphibious Scout Aircraft
  * - aircrafts/fighterAircrafts.ts: Fighter Aircraft
  * - aircrafts/amphibiousFighterAircrafts.ts: Amphibious Fighter Aircraft

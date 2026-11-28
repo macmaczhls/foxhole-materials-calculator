@@ -27,7 +27,21 @@ const bmsRockholdRecipes: IRecipe[] = [
   ),
 ];
 
+// BMS Roadhouse (Caboose) recipes
+const bmsRoadhouseRecipes: IRecipe[] = [
+  // Large Assembly Station: 20 x Processed Construction Materials + 15 x Assembly Materials II + 5 x Assembly Materials III → 1 x BMS Roadhouse
+  createRecipe(
+    [
+      { stuff: Materials.ProcessedConstructionMaterials, count: 20 },
+      { stuff: Materials.AssemblyMaterialsII, count: 15 },
+      { stuff: Materials.AssemblyMaterialsIII, count: 5 },
+    ],
+    [{ stuff: Vehicles.BMSRoadhouse, count: 1 }]
+  ),
+];
+
 export const flatbedCarRecipes = new Map<string, IRecipe[]>([
   [Vehicles.BMSLongrider, bmsLongriderRecipes],
   [Vehicles.BMSRockhold, bmsRockholdRecipes],
+  [Vehicles.BMSRoadhouse, bmsRoadhouseRecipes],
 ]);
