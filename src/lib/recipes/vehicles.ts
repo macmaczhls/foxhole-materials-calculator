@@ -24,6 +24,7 @@ import { flatbedCarRecipes } from "./trains/flatbedCars";
 import {
   amphibiousScoutAircraftRecipes,
   fighterAircraftRecipes,
+  amphibiousFighterAircraftRecipes,
 } from "./aircrafts";
 
 /**
@@ -53,6 +54,7 @@ import {
  * - trains/flatbedCars.ts: Flatbed Cars, Container Cars
  * - aircrafts/amphibiousScoutAircrafts.ts: Amphibious Scout Aircraft
  * - aircrafts/fighterAircrafts.ts: Fighter Aircraft
+ * - aircrafts/amphibiousFighterAircrafts.ts: Amphibious Fighter Aircraft
  */
 export const vehicleRecipes = new Map<string, IRecipe[]>([
   ...armouredFightingVehicleRecipes,
@@ -79,4 +81,5 @@ export const vehicleRecipes = new Map<string, IRecipe[]>([
   ...flatbedCarRecipes,
   ...amphibiousScoutAircraftRecipes,
   ...fighterAircraftRecipes,
+  ...amphibiousFighterAircraftRecipes,
 ]);
