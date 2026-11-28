@@ -13,6 +13,8 @@ const allTrainVehicles = [
   Vehicles.BMSRailtruck,
   Vehicles.BMSOverseerSkyHauler,
   Vehicles.BMSHoldout,
+  Vehicles.AegisSteelbreakerK5a,
+  Vehicles.OBrienWarsmithV215,
   Vehicles.BMSTinderbox,
   Vehicles.BMSStowheel,
   Vehicles.BMSLongrider,
@@ -45,7 +47,9 @@ describe("Train Vehicles", () => {
 
     test("train vehicles are in the train vehicle recipes map", () => {
       expect(infantryCarRecipes.has(Vehicles.BMSHoldout)).toBe(true);
-      expect(infantryCarRecipes.size).toBe(1);
+      expect(infantryCarRecipes.has(Vehicles.AegisSteelbreakerK5a)).toBe(true);
+      expect(infantryCarRecipes.has(Vehicles.OBrienWarsmithV215)).toBe(true);
+      expect(infantryCarRecipes.size).toBe(3);
       expect(flatbedCarRecipes.has(Vehicles.BMSLongrider)).toBe(true);
       expect(flatbedCarRecipes.has(Vehicles.BMSRockhold)).toBe(true);
       expect(flatbedCarRecipes.has(Vehicles.BMSRoadhouse)).toBe(true);
@@ -101,6 +105,112 @@ describe("Train Vehicles", () => {
         { stuff: Materials.ProcessedConstructionMaterials, count: 60 },
         { stuff: Materials.AssemblyMaterialsII, count: 45 },
         { stuff: Materials.AssemblyMaterialsIII, count: 15 },
+      ]);
+    });
+  });
+
+  describe("Aegis Steelbreaker K5a (Combat Car)", () => {
+    let aegisSteelbreakerK5aRecipes: IRecipe[];
+    let aegisSteelbreakerK5aRecipeTree: RecipeTree;
+
+    beforeEach(() => {
+      aegisSteelbreakerK5aRecipes = RecipiesByStuff.get(
+        Vehicles.AegisSteelbreakerK5a
+      )!;
+      aegisSteelbreakerK5aRecipeTree = {
+        stuff: Vehicles.AegisSteelbreakerK5a,
+        selectedRecipe: aegisSteelbreakerK5aRecipes[0],
+        recipes: aegisSteelbreakerK5aRecipes,
+        required: [],
+      };
+    });
+
+    test("has correct large assembly station recipe requirements", () => {
+      const recipe = aegisSteelbreakerK5aRecipes[0];
+      expect(recipe.required).toEqual([
+        { stuff: Materials.SteelConstructionMaterials, count: 30 },
+        { stuff: Materials.AssemblyMaterialsI, count: 30 },
+        { stuff: Materials.AssemblyMaterialsIV, count: 30 },
+      ]);
+      expect(recipe.produced).toEqual([
+        { stuff: Vehicles.AegisSteelbreakerK5a, count: 1 },
+      ]);
+    });
+
+    test("has only large assembly station recipe (no mass production)", () => {
+      expect(aegisSteelbreakerK5aRecipes.length).toBe(1);
+    });
+
+    test("calculates components correctly for single unit", () => {
+      const result = calculateComponents(aegisSteelbreakerK5aRecipeTree, 1);
+
+      expect(result.initial).toEqual([
+        { stuff: Materials.SteelConstructionMaterials, count: 30 },
+        { stuff: Materials.AssemblyMaterialsI, count: 30 },
+        { stuff: Materials.AssemblyMaterialsIV, count: 30 },
+      ]);
+    });
+
+    test("calculates components correctly for multiple units", () => {
+      const result = calculateComponents(aegisSteelbreakerK5aRecipeTree, 3);
+
+      expect(result.initial).toEqual([
+        { stuff: Materials.SteelConstructionMaterials, count: 90 },
+        { stuff: Materials.AssemblyMaterialsI, count: 90 },
+        { stuff: Materials.AssemblyMaterialsIV, count: 90 },
+      ]);
+    });
+  });
+
+  describe("O'Brien Warsmith v.215 (Combat Car)", () => {
+    let oBrienWarsmithV215Recipes: IRecipe[];
+    let oBrienWarsmithV215RecipeTree: RecipeTree;
+
+    beforeEach(() => {
+      oBrienWarsmithV215Recipes = RecipiesByStuff.get(
+        Vehicles.OBrienWarsmithV215
+      )!;
+      oBrienWarsmithV215RecipeTree = {
+        stuff: Vehicles.OBrienWarsmithV215,
+        selectedRecipe: oBrienWarsmithV215Recipes[0],
+        recipes: oBrienWarsmithV215Recipes,
+        required: [],
+      };
+    });
+
+    test("has correct large assembly station recipe requirements", () => {
+      const recipe = oBrienWarsmithV215Recipes[0];
+      expect(recipe.required).toEqual([
+        { stuff: Materials.SteelConstructionMaterials, count: 30 },
+        { stuff: Materials.AssemblyMaterialsI, count: 30 },
+        { stuff: Materials.AssemblyMaterialsIV, count: 30 },
+      ]);
+      expect(recipe.produced).toEqual([
+        { stuff: Vehicles.OBrienWarsmithV215, count: 1 },
+      ]);
+    });
+
+    test("has only large assembly station recipe (no mass production)", () => {
+      expect(oBrienWarsmithV215Recipes.length).toBe(1);
+    });
+
+    test("calculates components correctly for single unit", () => {
+      const result = calculateComponents(oBrienWarsmithV215RecipeTree, 1);
+
+      expect(result.initial).toEqual([
+        { stuff: Materials.SteelConstructionMaterials, count: 30 },
+        { stuff: Materials.AssemblyMaterialsI, count: 30 },
+        { stuff: Materials.AssemblyMaterialsIV, count: 30 },
+      ]);
+    });
+
+    test("calculates components correctly for multiple units", () => {
+      const result = calculateComponents(oBrienWarsmithV215RecipeTree, 3);
+
+      expect(result.initial).toEqual([
+        { stuff: Materials.SteelConstructionMaterials, count: 90 },
+        { stuff: Materials.AssemblyMaterialsI, count: 90 },
+        { stuff: Materials.AssemblyMaterialsIV, count: 90 },
       ]);
     });
   });
