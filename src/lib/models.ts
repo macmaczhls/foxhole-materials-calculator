@@ -218,6 +218,7 @@ export enum Vehicles {
   BMSGrouper = 'BMS - Grouper',
   RonanBlackguard81ff = '81f-f Ronan Blackguard',
   Blacksteele = 'Blacksteele',
+  BMSBowhead = 'BMS - Bowhead',
   // Train Vehicles
   BMSLinerunner = 'BMS Linerunner',
   BMSMineseeker = 'BMS Mineseeker',
@@ -426,6 +427,7 @@ export const availableMaterials: Stuff[] = [
   { name: Vehicles.BMSGrouper },
   { name: Vehicles.RonanBlackguard81ff },
   { name: Vehicles.Blacksteele },
+  { name: Vehicles.BMSBowhead },
   // Train Vehicles
   { name: Vehicles.BMSLinerunner },
   { name: Vehicles.BMSMineseeker },

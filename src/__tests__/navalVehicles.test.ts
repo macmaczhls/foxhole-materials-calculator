@@ -27,6 +27,7 @@ describe("Naval Vehicles", () => {
         Vehicles.BMSGrouper,
         Vehicles.RonanBlackguard81ff,
         Vehicles.Blacksteele,
+        Vehicles.BMSBowhead,
       ];
 
       navalVehicles.forEach((vehicle) => {
@@ -56,6 +57,7 @@ describe("Naval Vehicles", () => {
         Vehicles.BMSGrouper,
         Vehicles.RonanBlackguard81ff,
         Vehicles.Blacksteele,
+        Vehicles.BMSBowhead,
       ];
 
       navalVehicles.forEach((vehicle) => {
@@ -90,6 +92,7 @@ describe("Naval Vehicles", () => {
       expect(navalVehicleRecipes.has(Vehicles.BMSGrouper)).toBe(true);
       expect(navalVehicleRecipes.has(Vehicles.RonanBlackguard81ff)).toBe(true);
       expect(navalVehicleRecipes.has(Vehicles.Blacksteele)).toBe(true);
+      expect(navalVehicleRecipes.has(Vehicles.BMSBowhead)).toBe(true);
     });
   });
 
@@ -210,6 +213,7 @@ describe("Naval Vehicles", () => {
         Vehicles.BMSGrouper,
         Vehicles.RonanBlackguard81ff,
         Vehicles.Blacksteele,
+        Vehicles.BMSBowhead,
       ];
 
       navalVehicles.forEach((vehicle) => {
@@ -1071,6 +1075,54 @@ describe("Naval Vehicles", () => {
       expect(result.initial).toEqual([
         { stuff: Materials.NavalHullSegments, count: 36 },
         { stuff: Materials.NavalShellPlating, count: 36 },
+      ]);
+    });
+  });
+
+  describe("BMS - Bowhead (Resource Ship)", () => {
+    let bmsBowheadRecipes: IRecipe[];
+    let bmsBowheadRecipeTree: RecipeTree;
+
+    beforeEach(() => {
+      bmsBowheadRecipes = RecipiesByStuff.get(Vehicles.BMSBowhead)!;
+      bmsBowheadRecipeTree = {
+        stuff: Vehicles.BMSBowhead,
+        selectedRecipe: bmsBowheadRecipes[0],
+        recipes: bmsBowheadRecipes,
+        required: [],
+      };
+    });
+
+    test("has correct dry dock recipe requirements", () => {
+      const recipe = bmsBowheadRecipes[0];
+      expect(recipe.required).toEqual([
+        { stuff: Materials.NavalHullSegments, count: 8 },
+        { stuff: Materials.NavalShellPlating, count: 15 },
+      ]);
+      expect(recipe.produced).toEqual([
+        { stuff: Vehicles.BMSBowhead, count: 1 },
+      ]);
+    });
+
+    test("has only dry dock recipe (no mass production)", () => {
+      expect(bmsBowheadRecipes.length).toBe(1);
+    });
+
+    test("calculates components correctly for single unit", () => {
+      const result = calculateComponents(bmsBowheadRecipeTree, 1);
+
+      expect(result.initial).toEqual([
+        { stuff: Materials.NavalHullSegments, count: 8 },
+        { stuff: Materials.NavalShellPlating, count: 15 },
+      ]);
+    });
+
+    test("calculates components correctly for multiple units", () => {
+      const result = calculateComponents(bmsBowheadRecipeTree, 3);
+
+      expect(result.initial).toEqual([
+        { stuff: Materials.NavalHullSegments, count: 24 },
+        { stuff: Materials.NavalShellPlating, count: 45 },
       ]);
     });
   });

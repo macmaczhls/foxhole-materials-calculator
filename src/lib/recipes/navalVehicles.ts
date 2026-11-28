@@ -397,6 +397,18 @@ const blacksteeleRecipes: IRecipe[] = [
   ),
 ];
 
+// BMS - Bowhead (Resource Ship) recipes
+const bmsBowheadRecipes: IRecipe[] = [
+  // Dry Dock production: 8 x Naval Hull Segments + 15 x Naval Shell Plating → 1 x BMS - Bowhead
+  createRecipe(
+    [
+      { stuff: Materials.NavalHullSegments, count: 8 },
+      { stuff: Materials.NavalShellPlating, count: 15 },
+    ],
+    [{ stuff: Vehicles.BMSBowhead, count: 1 }]
+  ),
+];
+
 export const navalVehicleRecipes = new Map<string, IRecipe[]>([
   [Materials.NavalHullSegments, navalHullSegmentsRecipes],
   [Materials.NavalShellPlating, navalShellPlatingRecipes],
@@ -420,4 +432,5 @@ export const navalVehicleRecipes = new Map<string, IRecipe[]>([
   [Vehicles.BMSGrouper, bmsGrouperRecipes],
   [Vehicles.RonanBlackguard81ff, ronanBlackguard81ffRecipes],
   [Vehicles.Blacksteele, blacksteeleRecipes],
+  [Vehicles.BMSBowhead, bmsBowheadRecipes],
 ]);
