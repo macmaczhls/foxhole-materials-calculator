@@ -230,6 +230,10 @@ export enum Vehicles {
   // Amphibious Scout Aircraft
   LuminaryMkIVHerald = 'Luminary Mk. IV Herald',
   A51VentiDaedalus = 'A51 Venti "Daedalus"',
+  // Fighter Aircraft
+  LuminaryMkIIHarbinger = 'Luminary Mk. II Harbinger',
+  DaimonAK5Harpy = 'Daimon aK-5 "Harpy"',
+  Toxot902BlindSilver = 'Toxot-902 "Blind Silver"',
 }
 
 export enum RawResources {
@@ -430,6 +434,10 @@ export const availableMaterials: Stuff[] = [
   // Amphibious Scout Aircraft
   { name: Vehicles.LuminaryMkIVHerald },
   { name: Vehicles.A51VentiDaedalus },
+  // Fighter Aircraft
+  { name: Vehicles.LuminaryMkIIHarbinger },
+  { name: Vehicles.DaimonAK5Harpy },
+  { name: Vehicles.Toxot902BlindSilver },
 ];
 
 export const stuffList: Stuff[] = availableMaterials;

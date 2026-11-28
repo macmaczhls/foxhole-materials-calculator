@@ -209,4 +209,9 @@ export const ICONS_MAP = new Map<string, string>([
   // Amphibious Scout Aircraft
   [Vehicles.LuminaryMkIVHerald, "AircraftScoutWIcon"],
   [Vehicles.A51VentiDaedalus, "AircraftScoutCIcon"],
+  // Fighter Aircraft (icon filenames from foxhole.wiki.gg vehicle pages)
+  [Vehicles.LuminaryMkIIHarbinger, "AircraftFighterWIcon"],
+  [Vehicles.DaimonAK5Harpy, "AircraftFighter2CIcon"],
+  // Wiki filename uses "Figther" spelling
+  [Vehicles.Toxot902BlindSilver, "AircraftFigtherCIcon"],
 ]);
