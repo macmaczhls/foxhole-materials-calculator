@@ -361,6 +361,30 @@ const bmsGrouperRecipes: IRecipe[] = [
   ),
 ];
 
+// 81f-f Ronan Blackguard (Siege Boat) recipes
+const ronanBlackguard81ffRecipes: IRecipe[] = [
+  // Shipyard production: 100 x Refined Materials → 1 x 81f-f Ronan Blackguard
+  createRecipe(
+    [{ stuff: Materials.RefinedMaterials, count: 100 }],
+    [{ stuff: Vehicles.RonanBlackguard81ff, count: 1 }]
+  ),
+  // Mass Production Factory: 720 x Refined Materials → 3 crates of 3 x 81f-f Ronan Blackguard (9 total)
+  createRecipe(
+    [{ stuff: Materials.RefinedMaterials, count: 720 }],
+    [{ stuff: Vehicles.RonanBlackguard81ff, count: 9 }]
+  ),
+  // Mass Production Factory: 900 x Refined Materials → 4 crates of 3 x 81f-f Ronan Blackguard (12 total)
+  createRecipe(
+    [{ stuff: Materials.RefinedMaterials, count: 900 }],
+    [{ stuff: Vehicles.RonanBlackguard81ff, count: 12 }]
+  ),
+  // Mass Production Factory: 1050 x Refined Materials → 5 crates of 3 x 81f-f Ronan Blackguard (15 total)
+  createRecipe(
+    [{ stuff: Materials.RefinedMaterials, count: 1050 }],
+    [{ stuff: Vehicles.RonanBlackguard81ff, count: 15 }]
+  ),
+];
+
 export const navalVehicleRecipes = new Map<string, IRecipe[]>([
   [Materials.NavalHullSegments, navalHullSegmentsRecipes],
   [Materials.NavalShellPlating, navalShellPlatingRecipes],
@@ -382,4 +406,5 @@ export const navalVehicleRecipes = new Map<string, IRecipe[]>([
   [Vehicles.K81eSombre, k81eSombreRecipes],
   [Vehicles.RinnspeirOrnitierClassGunship, rinnspeirOrnitierRecipes],
   [Vehicles.BMSGrouper, bmsGrouperRecipes],
+  [Vehicles.RonanBlackguard81ff, ronanBlackguard81ffRecipes],
 ]);
