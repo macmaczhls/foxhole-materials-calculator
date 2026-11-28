@@ -103,6 +103,9 @@ describe("wikiVehicleSync chapter map", () => {
       "aircrafts/amphibiousFighterAircrafts.ts"
     );
     expect(mapWikiTypeToChapter("Locomotive")).toBe("trains/flatbedCars.ts");
+    expect(mapWikiTypeToChapter("Heavy Bomber Aircraft")).toBe(
+      "aircrafts/heavyBomberAircrafts.ts"
+    );
   });
 
   test("treats aircraft carrier / mech as unmapped", () => {
