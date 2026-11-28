@@ -40,8 +40,22 @@ const bmsRoadhouseRecipes: IRecipe[] = [
   ),
 ];
 
+// BMS Black Bolt (Locomotive) recipes
+const bmsBlackBoltRecipes: IRecipe[] = [
+  // Large Assembly Station: 200 x Processed Construction Materials + 60 x Assembly Materials I + 50 x Assembly Materials IV → 1 x BMS Black Bolt
+  createRecipe(
+    [
+      { stuff: Materials.ProcessedConstructionMaterials, count: 200 },
+      { stuff: Materials.AssemblyMaterialsI, count: 60 },
+      { stuff: Materials.AssemblyMaterialsIV, count: 50 },
+    ],
+    [{ stuff: Vehicles.BMSBlackBolt, count: 1 }]
+  ),
+];
+
 export const flatbedCarRecipes = new Map<string, IRecipe[]>([
   [Vehicles.BMSLongrider, bmsLongriderRecipes],
   [Vehicles.BMSRockhold, bmsRockholdRecipes],
   [Vehicles.BMSRoadhouse, bmsRoadhouseRecipes],
+  [Vehicles.BMSBlackBolt, bmsBlackBoltRecipes],
 ]);

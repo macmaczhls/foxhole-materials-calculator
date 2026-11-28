@@ -230,6 +230,7 @@ export enum Vehicles {
   BMSLongrider = 'BMS Longrider',
   BMSRockhold = 'BMS Rockhold',
   BMSRoadhouse = 'BMS Roadhouse',
+  BMSBlackBolt = 'BMS Black Bolt',
   // Amphibious Scout Aircraft
   LuminaryMkIVHerald = 'Luminary Mk. IV Herald',
   A51VentiDaedalus = 'A51 Venti "Daedalus"',
@@ -439,6 +440,7 @@ export const availableMaterials: Stuff[] = [
   { name: Vehicles.BMSLongrider },
   { name: Vehicles.BMSRockhold },
   { name: Vehicles.BMSRoadhouse },
+  { name: Vehicles.BMSBlackBolt },
   // Amphibious Scout Aircraft
   { name: Vehicles.LuminaryMkIVHerald },
   { name: Vehicles.A51VentiDaedalus },
